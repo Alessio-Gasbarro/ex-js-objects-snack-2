@@ -17,3 +17,12 @@
 //  perchè JSON e structuredClone ignorano le funzioni.
 //-2 Per clonare `restaurant`, invece si potrebbe usare structuredClone(restaurant),
 //  perchè contiene oggetti annidati, ha un Date (che Json trasforma in stringa) e non contiene funzioni
+
+//🎯 Code Question 5 (Bonus)
+//-1 In linea teorica dovrebbe uscire:
+//Anonymous Chef
+//Chef Hyur
+//Hyur's Burgers
+//Hyur's II
+//-2 Dovrebbe aver creato 5 oggetti:
+//`hamburger`, `maker`, `restaurant` (originale), `newRestaurant` (oggetto nuovo), `secondBurger` (shallow copy)
