@@ -26,3 +26,7 @@
 //Hyur's II
 //-2 Dovrebbe aver creato 5 oggetti:
 //`hamburger`, `maker`, `restaurant` (originale), `newRestaurant` (oggetto nuovo), `secondBurger` (shallow copy)
+
+//🎯 Code Question 6 (Bonus)
+//-1 Teoricamente si potrebbe usare una funzione di deep copy, dato che
+//  structuredClone e JSON non vanno bene perchè ignorano/mettono undefined sulle funzioni
