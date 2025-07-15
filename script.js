@@ -11,3 +11,9 @@
 // `hamburger`: 1 oggetto + `maker` + `restaurant` = 3
 // `secondBurger`: nuova copia profonda = 3
 // `thirdBurger`: nuova copia profonda = 3
+
+//🏆 Code Question 4
+//-1 Per clonare `chef`, in linea teorica si potrebbe usare una deep copy che gestisce le funzioni,
+//  perchè JSON e structuredClone ignorano le funzioni.
+//-2 Per clonare `restaurant`, invece si potrebbe usare structuredClone(restaurant),
+//  perchè contiene oggetti annidati, ha un Date (che Json trasforma in stringa) e non contiene funzioni
