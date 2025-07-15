@@ -28,5 +28,51 @@
 //`hamburger`, `maker`, `restaurant` (originale), `newRestaurant` (oggetto nuovo), `secondBurger` (shallow copy)
 
 //🎯 Code Question 6 (Bonus)
-//-1 Teoricamente si potrebbe usare una funzione di deep copy, dato che
+//-1 Teoricamente si potrebbe usare una funzione di deep copy ricorsiva, dato che
 //  structuredClone e JSON non vanno bene perchè ignorano/mettono undefined sulle funzioni
+
+//🎯 Snack  (Bonus) Creazione funzione
+function deepCopyWithFunctions(obj) {
+    if (obj === null) return null;
+    if (typeof obj !== 'object') return obj;
+    if (typeof obj === 'function') return obj;
+    if (Array.isArray(obj)) {
+        return obj.map(item => deepCopyWithFunctions(item));
+    }
+
+    const clone = {};
+    for (let key in obj) {
+        clone[key] = deepCopyWithFunctions(obj[key]);
+    }
+    return clone;
+}
+
+//Test con oggetto di Code Question 6
+const chef = {
+    name: "Chef Hyur",
+    age: 29,
+    makeBurger: (num = 1) => {
+        console.log(`Ecco ${num} hamburger per te!`);
+    },
+    restaurant: {
+        name: "Hyur's Burgers",
+        welcomeClient: () => {
+            console.log("Benvenuto!");
+        },
+        address: {
+            street: 'Main Street',
+            number: 123,
+            showAddress: () => {
+                console.log("Main Street 123");
+            }
+        },
+        isOpen: true,
+    }
+};
+
+const clonedChef = deepCopyWithFunctions(chef);
+
+// Test + Risultati commentati
+clonedChef.makeBurger(2); // Ecco 2 hamburger per te!
+clonedChef.restaurant.welcomeClient(); // Benvenuto!
+clonedChef.restaurant.address.showAddress(); // Main Street 123
